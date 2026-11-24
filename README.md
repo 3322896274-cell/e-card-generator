@@ -1,41 +1,23 @@
-# Serverless E-Card-Generator
+# 心意来信 · 电子贺卡
 
-Generate E-Cards (Birthday wish, Anniversary, Thank you cards, etc) and send them to your loved ones with a Shared Link or a QR code.
+基于 [Ronik22/E-Card-Generator](https://github.com/Ronik22/E-Card-Generator) 的中文交互式贺卡原型，保留原 MIT LICENSE。
 
-<p><a href="https://ronik22.github.io/E-Card-Generator/" target="_blank">Click here to Generate a Card</a></p>
+## 功能
 
-## How to use?
+- 生日、纪念日、表白；玫瑰、星空、花园三种视觉主题。
+- 自定义收件人、祝福、署名，最多八张照片，背景音乐及语音。
+- 支持浏览器录音（需要 HTTPS、浏览器支持及麦克风授权）。
+- 拆信封、礼花动画、音乐播放、独立 HTML 导出。
+- HTTPS 部署后可生成包含文字及在线媒体地址的分享链接和二维码（二维码使用 qrcodejs CDN）。
 
-1. Enter name of the person to whom you want to send the card
-2. Provide the text you want to write on the card
-3. Click `See templates` and select a template
-4. On selecting, a link and a QR code will be generated
-5. Share the link or the QR code
+## 部署
 
-## Add New Card Cover Images:
+在仓库 Settings → Pages → Build and deployment，选择 Deploy from a branch，分支 main，目录 / (root)，保存。等待 GitHub 部署完成，再打开 Pages 显示的网址。
 
-1. Add new image in the folder of your choice inside `res` folder. You can also make a new folder.
-2. Follow the numeric order and also name your image after a number. Then add the path to `path.js` file. In here, `cardPicPaths` is in JSON format.
+## 当前限制
 
-**Example 1:** Adding an image named `2.png` under `anniversary` folder looks like this
+本地上传的照片和音频只在当前浏览器内存中使用，可随 HTML 导出，不会自动上传。扫码分享时使用有访问权限的 HTTPS 媒体直链，链接过长时仅提供链接、不生成二维码。收件人点击拆信封后尝试播放背景音乐，受浏览器限制时可手动播放。分享链接不是加密或访问控制；请勿放入敏感信息，勿将未经同意的私人照片上传至公共仓库。当前没有账户、云存储、支付、订单管理或自动交付功能。正式商业运营应迁移到符合托管条款的商业服务，并实现独立订单 ID、私有存储、权限控制及有效期。
 
-        ...
-        "anniversary": {
-            "img":{
-                "1": "../res/anniversary/1.png",
-                "2": "../res/anniversary/2.png"
-            },
-            "title":"Happy Anniversary"
-        },
-        ...
+## 许可
 
-**Example 2:** 
-
-        ...
-        ,
-        "your_new_folder_name": {
-            "img":{
-                "1": "../res/your_new_folder_name/1.png"
-            },
-            "title":"your_new_title_for_card"
-        }
+原项目 MIT 许可见 LICENSE。第三方素材及音乐需另行确认授权。
